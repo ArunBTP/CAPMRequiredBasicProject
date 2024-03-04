@@ -1,0 +1,45 @@
+{
+  "xsappname": "normalcaptomt",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+  "scopes": [
+    {
+      "name": "uaa.user",
+      "description": "UAA"
+    },
+    {
+      "name": "$XSAPPNAME.BookViewer",
+      "description": "BookViewer"
+    },
+    {
+      "name": "$XSAPPNAME.BookManager",
+      "description": "BookManager"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Token_Exchange",
+      "description": "UAA",
+      "scope-references": [
+        "uaa.user"
+      ]
+    },
+    {
+      "name": "BookViewer",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.BookViewer"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "BookManager",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.BookManager"
+      ],
+      "attribute-references": []
+    }
+  ],
+  "attributes": []
+}
